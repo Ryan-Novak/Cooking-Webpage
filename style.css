@@ -7,8 +7,8 @@
   box-sizing: border-box;
 }
 :root{
-  --tenne-tawny: #d65108;
-  --teene-tawny-dark: #b54507;
+  --tenne-tawny: #ff5f5f;
+  --teene-tawny-dark: #5f2626;
 }
 body{
   font-weight: 300;
@@ -108,7 +108,7 @@ body{
 }
 .recipe-btn{
   text-decoration: none;
-  color: #fff;
+  color: rgb(255, 255, 255);
   background: var(--teene-tawny-dark);
   font-weight: 500;
   font-size: 1.1rem;
@@ -129,8 +129,8 @@ body{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #fff;
-  background: var(--tenne-tawny);
+  color: rgb(255, 255, 255);
+  background: var(--teene-tawny-dark);
   border-radius: 1rem;
   width: 90%;
   height: 90%;
@@ -215,6 +215,14 @@ body{
   opacity: 0.8;
 }
 
+/*  */
+.notFound{
+  grid-template-columns: 1fr!important;
+  color: var(--tenne-tawny);
+  font-size: 1.8rem;
+  font-weight: 600;
+  width: 100%;
+}
 
 
 
