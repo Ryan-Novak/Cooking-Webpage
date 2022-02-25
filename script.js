@@ -76,3 +76,16 @@ function mealRecipeModal(meal){
   mealDetailsContent.innerHTML = html;
   mealDetailsContent.parentElement.classList.add('showRecipe');
 }
+
+
+// Ingredient button is clicked
+const selected= []
+function clicked(button, food){
+  document.getElementById(button).style.backgroundColor = "#ff5f5f70";
+  selected.push(food)
+}
+
+function done(){
+  document.getElementById("testTheList").innerHTML = selected;
+  
+}
