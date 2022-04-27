@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel  = "stylesheet" href = "style.css">
   </head>
+   <header>
+    <nav>
+      <ul>
+        <li><a href ="map.html">Map</a></li>
+        <li><a href='upload.html'>Upload</a> </li>
+        <li><a href='Login.html'>Login</a> </li>
+      </ul>
+    </nav>
+  </header>
   <body>
 
 <!--
@@ -19,11 +28,11 @@
 
     <aside class= "side-nav">
 
-      <button type = "submit" class = "search-btn btn" id = "search-btn" onclick= getMealList()> 
+      <button type = "submit" class = "search" id = "search-btn" onclick= getMealList()> 
         Search
       </button>
 
-      <h3 id= testTheList>test</h3>
+      <!-- <h3 id= testTheList>test</h3> -->
 
       <h3>Vegetables</h3>
       <div class="btn-group">
@@ -31,7 +40,7 @@
         <button id= v2 value= "carrot" onclick= clicked("v2","carrot")>carrot</button>
         <button id= v3 value= "corn" onclick= clicked("v3","corn")>corn</button>
         <button id= v4 value= "tomato" onclick= clicked("v4","tomato")>tomato</button>
-        <button id= v5 value= "bell pepper" onclick= clicked("v5","bell pepper")>bell pepper</button>
+        <button id= v5 value= "bell pepper" onclick= clicked("v5","bell_pepper")>bell pepper</button>
       </div>
 
       <h3>Dairy and Eggs</h3>
@@ -40,7 +49,7 @@
         <button id= d2 value= "butter" onclick= clicked("d2","butter")>butter</button>
         <button id= d3 value= "milk" onclick= clicked("d3","milk")>milk</button>
         <button id= d4 value= "yogurt" onclick= clicked("d4","yogurt")>yogurt</button>
-        <button id= d5 value= "heavy cream" onclick= clicked("d5","heavy cream")>heavy cream</button>
+        <button id= d5 value= "heavy cream" onclick= clicked("d5","heavy_cream")>heavy cream</button>
       </div>
       
       <h3>Proteins</h3>
@@ -54,7 +63,7 @@
       
       <h3>Carbs</h3>
       <div class="btn-group">
-        <button id= c1 value= "bread loaf" onclick= clicked("c1","bread loaf")>bread loaf</button>
+        <button id= c1 value= "bread loaf" onclick= clicked("c1","bread_loaf")>bread loaf</button>
         <button id= c2 value= "beans" onclick= clicked("c2","beans")>beans</button>
         <button id= c3 value= "rice" onclick= clicked("c3","rice")>rice</button>
         <button id= c4 value= "pasta" onclick= clicked("c4","pasta")>pasta</button>
@@ -64,8 +73,8 @@
       <div class="btn-group">
         <button id= b1 value= "flour" onclick= clicked("b1","flour")>flour</button>
         <button id= b2 value= "sugar" onclick= clicked("b2","sugar")>sugar</button>
-        <button id= b3 value= "baking soda" onclick= clicked("b3","baking soda")>baking soda</button>
-        <button id= b4 value= "baking powder" onclick= clicked("b4","baking powder")>baking powder</button>
+        <button id= b3 value= "baking soda" onclick= clicked("b3","baking_soda")>baking soda</button>
+        <button id= b4 value= "baking powder" onclick= clicked("b4","baking_powder")>baking powder</button>
         <button id= b5 value= "vanilla" onclick= clicked("b5","vanilla")>vanilla</button>
         <button id= b6 value= "yeast" onclick= clicked("b6","yeast")>yeast</button>
       </div>
@@ -75,18 +84,22 @@
 
     <div class = "container">
       <div class = "meal-wrapper">
+        <div id = "intro">
+          <h1 id = "hello"></h2>
+        </div>
         <div class = "meal-search">
-          <h2 class = "title">Find meals with your ingredients</h2>
+          <h2 class = "title">Find meals with your ingredients</h1>
           <blockquote> Why buy new ingredients when you can use what you have?<br>
           <cite>- Somebody</cite>
           </blockquote>
 
-          <div class = "meal-search-box">
+          <!-- <div class = "meal-search-box">
             <input type = "text" class = "search-control" placeholder="Enter an ingredient" id = "search-input">
             <button type = "submit" class = "search-btn btn" id = "search-btn">
               <i class = "fas fa-search"></i>
             </button>
           </div>
+          !-->
         </div>
 
         <div class = "meal-result">
@@ -133,7 +146,16 @@
       </div>
     </div>
 
-
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+  
+    <script src = "login.js"></script>
     <script src = "script.js"></script>
+    
   </body>
 </html>

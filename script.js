@@ -4,12 +4,27 @@ const mealList = document.getElementById('meal');
 const mealDetailsContent = document.querySelector('.meal-details-content');
 const recipeCloseBtn = document.getElementById('recipe-close-btn');
 
+
+FirebaseDatabase database = FirebaseDatabase.getInstance();
+databaseUsers = database.getReference("Users");
+String id = mAuth.getCurrentUser().getUid();
+DatabaseReference username = databaseUsers.child(id).child("username");
+
 // event listeners
 searchBtn.addEventListener('click', getMealList);
 mealList.addEventListener('click', getMealRecipe);
 recipeCloseBtn.addEventListener('click', () =>{
   mealDetailsContent.parentElement.classList.remove('showRecipe')
 })
+
+
+/* Deal with this later
+var introName = sessionStorage.getItem("introName");
+document.getElementById("hello").innerText = introName;
+
+https://stackoverflow.com/questions/60155498/how-to-retrieve-a-username-from-firebase-realtime-database
+
+*/
 
 // get meal list that matches with the ingredients
 function getMealList(){
@@ -34,7 +49,7 @@ function getMealList(){
       });
       mealList.classList.remove('notFound');
     } else{
-      html = `Sorry, we didn't find any recipes containg ${selected}`;
+      html = `Sorry, we didn't find any recipes containing: ${selected}`;
       mealList.classList.add('notFound');
     }
 
@@ -79,11 +94,24 @@ function mealRecipeModal(meal){
 
 
 // Ingredient button is clicked
-const selected= []
+const selected= [];
 function clicked(button, food){
-  document.getElementById(button).style.backgroundColor = "#ff5f5f70";
-  selected.push(food)
+  food = food.replace("_"," ");
+  if (selected.includes(food)){
+    document.getElementById(button).style.backgroundColor = "white";
+    for (let i in selected){
+      if (selected[i] == food){
+        selected.splice(i,1);
+      }
+    }
+  }
+  else{
+    document.getElementById(button).style.backgroundColor = "#ff5f5f70";
+    selected.push(food);
+  }
+  
 }
+
 
 function done(){
   document.getElementById("testTheList").innerHTML = selected;
